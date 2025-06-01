@@ -704,6 +704,12 @@
             50% { transform: translateY(-20px) rotate(180deg); }
         }
     </style>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        emailjs.init("5iMRn1CalPdToSLI5");
+    </script>
 </head>
 <body>
     <div class="floating-shapes">
@@ -901,11 +907,50 @@
             }
         });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+        // Form submission with EmailJS
+        function sendEmail(e) {
             e.preventDefault();
-            alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-        });
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.cta-button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value,
+                to_email: 'deltaratech@gmail.com'
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_3a38f7a', 'template_ftc7b1v', formData)
+                .then(function(response) {
+                    // Success
+                    alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+                    
+                    // Reset form
+                    document.querySelector('.contact-form').reset();
+                    
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    // Error
+                    console.error('EmailJS Error:', error);
+                    alert('Sorry, there was an error sending your message. Please try emailing us directly at deltaratech@gmail.com');
+                    
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
+        }
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', sendEmail);
 
         // Parallax effect for floating shapes
         window.addEventListener('scroll', () => {
