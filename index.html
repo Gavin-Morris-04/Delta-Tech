@@ -918,9 +918,23 @@
             });
         });
 
-        // Initialize first section as visible
+        // Initialize first section as visible and ensure page starts at top
         window.addEventListener('load', () => {
+            // Force scroll to top on page load
+            window.scrollTo(0, 0);
+            
+            // Make home section visible
             document.querySelector('#home').classList.add('visible');
+            
+            // Remove any hash from URL that might cause auto-scrolling
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname);
+            }
+        });
+
+        // Also ensure page starts at top on page reload/refresh
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
         });
     </script>
 </body>
