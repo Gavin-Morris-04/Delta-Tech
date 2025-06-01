@@ -123,7 +123,7 @@
 
         /* Home Section */
         .home {
-            background: url('./images/756926-1920x1080-desktop-1080p-new-orleans-background.jpg') center/cover;
+            background: url('./images/downtown-new-orleans-superdome-600nw-2423147083.webp') center/cover;
             text-align: center;
         }
 
@@ -277,7 +277,22 @@
         /* Reviews Section */
         .reviews {
             background: url('https://images.unsplash.com/photo-1618328070719-566d57e70734?w=1920&h=1080&fit=crop') center/cover;
+            background-attachment: fixed;
+            background-size: 118%;
+            background-position: center center;
             text-align: center;
+            animation: backgroundZoomReviews 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundZoomReviews {
+            0% { 
+                background-size: 118%;
+                background-position: left center;
+            }
+            100% { 
+                background-size: 128%;
+                background-position: right center;
+            }
         }
 
         .reviews h2 {
@@ -347,7 +362,22 @@
 
         /* Contact Section */
         .contact {
-            background: url('images\iStock-1047897858.jpg') center/cover;
+            background: url('./images/756926-1920x1080-desktop-1080p-new-orleans-background.jpg') center/cover;
+            background-attachment: fixed;
+            background-size: 125%;
+            background-position: center center;
+            animation: backgroundZoomContact 35s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundZoomContact {
+            0% { 
+                background-size: 125%;
+                background-position: center 80%;
+            }
+            100% { 
+                background-size: 135%;
+                background-position: center 30%;
+            }
         }
 
         .contact-grid {
@@ -459,6 +489,38 @@
         }
 
         @media (max-width: 768px) {
+            /* Mobile background optimizations */
+            .home,
+            .about,
+            .reviews,
+            .contact {
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center center;
+                min-height: 100vh;
+                animation: none;
+            }
+            
+            .home {
+                background-size: cover;
+                background-position: center 30%;
+            }
+            
+            .about {
+                background-size: cover;
+                background-position: center 40%;
+            }
+            
+            .reviews {
+                background-size: cover;
+                background-position: center center;
+            }
+            
+            .contact {
+                background-size: cover;
+                background-position: center 60%;
+            }
+        
             .nav-content {
                 flex-direction: row;
                 justify-content: space-between;
@@ -509,7 +571,7 @@
 
             .section {
                 padding: 2rem 1rem;
-                min-height: auto;
+                min-height: 100vh;
                 padding-top: 6rem;
             }
             
@@ -644,6 +706,10 @@
         }
 
         @media (max-width: 320px) {
+            .section {
+                min-height: 100vh;
+            }
+            
             .hero-content h1 {
                 font-size: 1.6rem;
             }
