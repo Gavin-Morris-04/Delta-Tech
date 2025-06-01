@@ -14,8 +14,10 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #ecf0f1;
-            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #34495e 100%);
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #e9ecef 75%, #f8f9fa 100%);
+            background-attachment: fixed;
+            background-size: 100% 300vh;
             overflow-x: hidden;
         }
 
@@ -26,11 +28,11 @@
             right: 0;
             z-index: 1000;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, rgba(26, 37, 47, 0.95), rgba(44, 62, 80, 0.95));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-content {
@@ -42,13 +44,8 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #3498db, #5dade2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+            height: clamp(60px, 8vw, 90px);
+            width: auto;
         }
 
         .nav-links {
@@ -58,7 +55,7 @@
         }
 
         .nav-links a {
-            color: #ecf0f1;
+            color: #2c3e50;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
@@ -68,7 +65,6 @@
 
         .nav-links a:hover {
             color: #3498db;
-            text-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
         }
 
         .mobile-menu-btn {
@@ -81,7 +77,7 @@
         .mobile-menu-btn span {
             width: 25px;
             height: 3px;
-            background: #ecf0f1;
+            background: #2c3e50;
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
@@ -123,7 +119,8 @@
 
         /* Home Section */
         .home {
-            background: url('./images/756926-1920x1080-desktop-1080p-new-orleans-background.jpg') center/cover;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(155, 89, 182, 0.05)), url('./images/756926-1920x1080-desktop-1080p-new-orleans-background.jpg') center/cover;
+            background-blend-mode: overlay;
             text-align: center;
         }
 
@@ -131,9 +128,9 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: #2c3e50;
             animation: glow 3s ease-in-out infinite alternate;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
         }
 
         @keyframes glow {
@@ -144,11 +141,11 @@
         .hero-content p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: #34495e;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
             font-weight: 500;
         }
 
@@ -177,18 +174,15 @@
             margin-top: 2rem;
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.9));
             border-radius: 30px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(52, 152, 219, 0.5);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            color: #2c3e50;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             font-weight: 600;
             font-size: 1rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
-
-    
 
         .about-grid {
             display: grid;
@@ -200,16 +194,14 @@
         .about-text h2 {
             font-size: 3rem;
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: #2c3e50;
             font-weight: 800;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .about-text p {
             font-size: 1.2rem;
-            color: #ffffff;
+            color: #34495e;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.4);
             font-weight: 500;
             line-height: 1.7;
         }
@@ -222,40 +214,21 @@
         }
 
         .service-card {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95)),
-                        radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.05) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 2px,
-                rgba(52, 152, 219, 0.02) 2px,
-                rgba(52, 152, 219, 0.02) 4px
-            );
-            pointer-events: none;
-        }
-
         .service-card:hover {
             transform: translateY(-10px);
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
-            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.9));
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
         }
 
         .service-card h3 {
@@ -266,38 +239,32 @@
         }
 
         .service-card p {
-            color: #ecf0f1;
+            color: #2c3e50;
             font-weight: 500;
             line-height: 1.6;
         }
 
-        /* Reviews Section */
-        .reviews {
-            background: url('https://images.unsplash.com/photo-1618328070719-566d57e70734?w=1920&h=1080&fit=crop') center/cover;
-            background-attachment: fixed;
-            background-size: 118%;
-            background-position: center center;
-            text-align: center;
-            animation: backgroundZoomReviews 30s ease-in-out infinite alternate;
+        /* About Section */
+        .about {
+            background: transparent;
         }
 
-        @keyframes backgroundZoomReviews {
-            0% { 
-                background-size: 118%;
-                background-position: left center;
-            }
-            100% { 
-                background-size: 128%;
-                background-position: right center;
-            }
+        /* Reviews Section */
+        .reviews {
+            background: transparent;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: transparent;
         }
 
         .reviews h2 {
             font-size: 3rem;
             margin-bottom: 3rem;
-            color: #ffffff;
+            color: #2c3e50;
             font-weight: 800;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .reviews-grid {
@@ -308,40 +275,28 @@
         }
 
         .review-card {
-            background: linear-gradient(135deg, rgba(30, 39, 46, 0.95), rgba(44, 62, 80, 0.95)),
-                        radial-gradient(circle at 70% 30%, rgba(52, 152, 219, 0.08) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             padding: 2.5rem;
             border-radius: 20px;
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
 
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 48%, rgba(52, 152, 219, 0.03) 50%, transparent 52%);
-            pointer-events: none;
-        }
-
         .review-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 152, 219, 0.15));
-            border-color: rgba(52, 152, 219, 0.5);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(52, 152, 219, 0.05));
+            border-color: rgba(52, 152, 219, 0.3);
         }
 
         .review-text {
             font-style: italic;
             margin-bottom: 1.5rem;
-            color: #ecf0f1;
+            color: #2c3e50;
             font-weight: 500;
             line-height: 1.6;
         }
@@ -351,24 +306,7 @@
             color: #3498db;
         }
 
-        /* Contact Section */
-        .contact {
-            background-attachment: fixed;
-            background-size: 125%;
-            background-position: center center;
-            animation: backgroundZoomContact 35s ease-in-out infinite alternate;
-        }
 
-        @keyframes backgroundZoomContact {
-            0% { 
-                background-size: 125%;
-                background-position: center 80%;
-            }
-            100% { 
-                background-size: 135%;
-                background-position: center 30%;
-            }
-        }
 
         .contact-grid {
             display: grid;
@@ -380,48 +318,26 @@
         .contact-info h2 {
             font-size: 3rem;
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: #2c3e50;
             font-weight: 800;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .contact-info p {
-            color: #ffffff;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.4);
+            color: #34495e;
             font-weight: 500;
             font-size: 1.1rem;
             line-height: 1.6;
         }
 
         .contact-form {
-            background: linear-gradient(135deg, rgba(30, 39, 46, 0.95), rgba(44, 62, 80, 0.95)),
-                        radial-gradient(circle at 30% 70%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             padding: 3rem;
             border-radius: 20px;
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-        }
-        
-        .contact-form::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(45deg, transparent 30%, rgba(52, 152, 219, 0.05) 50%, transparent 70%),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 20px,
-                    rgba(52, 152, 219, 0.02) 20px,
-                    rgba(52, 152, 219, 0.02) 21px
-                );
-            pointer-events: none;
         }
 
         .form-group {
@@ -440,28 +356,34 @@
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: rgba(52, 73, 94, 0.8);
-            border: 2px solid rgba(52, 152, 219, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(52, 152, 219, 0.2);
             border-radius: 10px;
-            color: #ecf0f1;
+            color: #2c3e50;
             font-size: 1rem;
             font-weight: 500;
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(236, 240, 241, 0.6);
+            color: rgba(44, 62, 80, 0.6);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #3498db;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            background: rgba(52, 73, 94, 0.9);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         /* Responsive Design */
+        @media (min-width: 1400px) {
+            .logo {
+                height: clamp(75px, 6vw, 100px);
+            }
+        }
+
         @media (max-width: 1200px) {
             .container {
                 padding: 0 1rem;
@@ -479,36 +401,13 @@
         }
 
         @media (max-width: 768px) {
-            /* Mobile background optimizations */
-            .home,
-            .about,
-            .reviews,
-            .contact {
+            /* Mobile optimizations */
+            body {
                 background-attachment: scroll;
-                background-size: cover;
-                background-position: center center;
-                min-height: 100vh;
-                animation: none;
             }
             
-            .home {
-                background-size: cover;
-                background-position: center 30%;
-            }
-            
-            .about {
-                background-size: cover;
-                background-position: center 40%;
-            }
-            
-            .reviews {
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            .contact {
-                background-size: cover;
-                background-position: center 60%;
+            .logo {
+                height: clamp(55px, 10vw, 75px);
             }
         
             .nav-content {
@@ -526,12 +425,12 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: linear-gradient(135deg, rgba(26, 37, 47, 0.98), rgba(44, 62, 80, 0.98));
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.98));
                 flex-direction: column;
                 padding: 1rem;
                 gap: 1rem;
-                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-                border-top: 1px solid rgba(52, 152, 219, 0.3);
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(52, 152, 219, 0.2);
                 display: none;
             }
             
@@ -622,7 +521,7 @@
 
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.5rem;
+                height: clamp(50px, 12vw, 65px);
             }
 
             .hero-content h1 {
@@ -696,6 +595,10 @@
         }
 
         @media (max-width: 320px) {
+            .logo {
+                height: clamp(45px, 14vw, 55px);
+            }
+            
             .section {
                 min-height: 100vh;
             }
@@ -749,9 +652,8 @@
             }
             
             .nav-links a:hover {
-                background-color: rgba(52, 152, 219, 0.2);
+                background-color: rgba(52, 152, 219, 0.1);
                 color: #3498db;
-                text-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
             }
         }
 
@@ -768,10 +670,10 @@
 
         .shape {
             position: absolute;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.15), rgba(93, 173, 226, 0.1));
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(93, 173, 226, 0.05));
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(52, 152, 219, 0.1);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.05);
         }
 
         .shape:nth-child(1) {
@@ -813,7 +715,7 @@
 
     <nav class="nav">
         <div class="nav-content">
-            <div class="logo">Deltara Tech</div>
+            <img src="images/logo.png" alt="Deltara Tech" class="logo">
             <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
@@ -995,9 +897,9 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'linear-gradient(135deg, rgba(26, 37, 47, 0.98), rgba(44, 62, 80, 0.98))';
+                nav.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.98))';
             } else {
-                nav.style.background = 'linear-gradient(135deg, rgba(26, 37, 47, 0.95), rgba(44, 62, 80, 0.95))';
+                nav.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95))';
             }
         });
 
