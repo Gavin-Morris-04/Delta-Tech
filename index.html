@@ -27,7 +27,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 0.5rem 2rem;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(52, 152, 219, 0.2);
@@ -44,7 +44,7 @@
         }
 
         .logo {
-            height: clamp(60px, 8vw, 90px);
+            height: clamp(70px, 8vw, 100px);
             width: auto;
         }
 
@@ -58,7 +58,7 @@
             color: #2c3e50;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.2rem;
             transition: color 0.3s ease;
             cursor: pointer;
         }
@@ -140,12 +140,12 @@
         .hero-content p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: #34495e;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9);
-            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            font-weight: 500;
         }
 
         .cta-button {
@@ -379,7 +379,7 @@
         /* Responsive Design */
         @media (min-width: 1400px) {
             .logo {
-                height: clamp(75px, 6vw, 100px);
+                height: clamp(85px, 6vw, 110px);
             }
         }
 
@@ -406,7 +406,7 @@
             }
             
             .logo {
-                height: clamp(55px, 10vw, 75px);
+                height: clamp(65px, 10vw, 85px);
             }
         
             .nav-content {
@@ -438,7 +438,7 @@
             }
             
             .nav {
-                padding: 1rem;
+                padding: 0.5rem;
             }
 
             .about-grid,
@@ -520,7 +520,7 @@
 
         @media (max-width: 480px) {
             .logo {
-                height: clamp(50px, 12vw, 65px);
+                height: clamp(60px, 12vw, 75px);
             }
 
             .hero-content h1 {
@@ -595,7 +595,7 @@
 
         @media (max-width: 320px) {
             .logo {
-                height: clamp(45px, 14vw, 55px);
+                height: clamp(55px, 14vw, 65px);
             }
             
             .section {
@@ -669,10 +669,10 @@
 
         .shape {
             position: absolute;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(93, 173, 226, 0.05));
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.4), rgba(93, 173, 226, 0.3));
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(52, 152, 219, 0.05);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
         }
 
         .shape:nth-child(1) {
