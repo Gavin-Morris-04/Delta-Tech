@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Pro - Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #e9ecef 75%, #f8f9fa 100%);
+            background-attachment: fixed;
+            background-size: 100% 300vh;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(52, 152, 219, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            color: #2980b9;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content h3 {
+            color: #3498db;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        .content ul {
+            margin: 1rem 0 1rem 2rem;
+            color: #34495e;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .effective-date {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .security-section {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #2ecc71;
+            margin: 2rem 0;
+        }
+
+        .security-section h2, .security-section h3 {
+            color: #27ae60 !important;
+        }
+
+        .rights-section {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #9b59b6;
+            margin: 2rem 0;
+        }
+
+        .rights-section h2, .rights-section h3 {
+            color: #8e44ad !important;
+        }
+
+        .data-sharing {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(211, 84, 0, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e67e22;
+            margin: 2rem 0;
+        }
+
+        .data-sharing h2, .data-sharing h3 {
+            color: #d35400 !important;
+        }
+
+        .contact-info {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #2ecc71;
+            margin: 2rem 0;
+        }
+
+        .contact-info h2 {
+            color: #27ae60 !important;
+            border: none;
+            margin-top: 0;
+        }
+
+        .regional-rights {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            margin: 2rem 0;
+        }
+
+        .regional-rights h2, .regional-rights h3 {
+            color: #2980b9 !important;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 1rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .back-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 90px 0.5rem 1rem;
+            }
+
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem 1rem;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+            }
+
+            .content h3 {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                height: 45px;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Touch-friendly improvements */
+        .back-link {
+            -webkit-tap-highlight-color: rgba(52, 152, 219, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <img src="images/logo.png" alt="Deltara Tech" class="logo">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>📦 Inventory Pro</h1>
+            <p class="subtitle">Privacy Policy</p>
+        </div>
+
+        <div class="content">
+            <div class="effective-date">
+                <strong>Effective Date: January 1, 2025</strong>
+            </div>
+
+            <h2>Introduction</h2>
+            <p>This Privacy Policy describes how Inventory Pro, developed by Deltara Tech ("we," "our," or "us"), collects, uses, and protects your information when you use our inventory management application ("App" or "Service").</p>
+
+            <h2>Information We Collect</h2>
+
+            <h3>Account Information</h3>
+            <ul>
+                <li><strong>User Profile:</strong> Name, email address, company name, and contact information</li>
+                <li><strong>Authentication Data:</strong> Username, encrypted passwords, and login credentials</li>
+                <li><strong>Subscription Details:</strong> Billing information, subscription plan, and payment history</li>
+            </ul>
+
+            <h3>Inventory Data</h3>
+            <ul>
+                <li><strong>Product Information:</strong> Product names, descriptions, SKUs, categories, and specifications</li>
+                <li><strong>Inventory Levels:</strong> Stock quantities, locations, and movement history</li>
+                <li><strong>Supplier Data:</strong> Vendor information, contact details, and purchasing records</li>
+                <li><strong>Transaction Records:</strong> Sales, purchases, adjustments, and inventory transfers</li>
+                <li><strong>Custom Fields:</strong> Any additional data fields you create within the App</li>
+            </ul>
+
+            <h3>Usage Information</h3>
+            <ul>
+                <li><strong>App Analytics:</strong> Feature usage, session duration, and user interactions</li>
+                <li><strong>Device Information:</strong> Device type, operating system, app version, and unique device identifiers</li>
+                <li><strong>Performance Data:</strong> Error logs, crash reports, and app performance metrics</li>
+                <li><strong>Location Data:</strong> If enabled, general location for multi-location inventory tracking</li>
+            </ul>
+
+            <h3>Communication Data</h3>
+            <ul>
+                <li><strong>Support Interactions:</strong> Customer support communications, feedback, and bug reports</li>
+                <li><strong>Notifications:</strong> Preferences for app notifications and alerts</li>
+            </ul>
+
+            <h2>How We Use Your Information</h2>
+
+            <h3>Core App Functionality</h3>
+            <ul>
+                <li><strong>Inventory Management:</strong> Process and store your inventory data for tracking and reporting</li>
+                <li><strong>User Experience:</strong> Customize the app interface and provide personalized features</li>
+                <li><strong>Data Synchronization:</strong> Sync data across your devices and team members</li>
+                <li><strong>Reporting:</strong> Generate inventory reports, analytics, and business insights</li>
+            </ul>
+
+            <h3>Service Improvement</h3>
+            <ul>
+                <li><strong>App Development:</strong> Improve features, fix bugs, and develop new functionality</li>
+                <li><strong>Performance Optimization:</strong> Monitor and enhance app performance and reliability</li>
+                <li><strong>Security:</strong> Detect and prevent unauthorized access and fraudulent activity</li>
+            </ul>
+
+            <h3>Communication</h3>
+            <ul>
+                <li><strong>Account Management:</strong> Send account-related notifications and updates</li>
+                <li><strong>Customer Support:</strong> Respond to inquiries and provide technical assistance</li>
+                <li><strong>Product Updates:</strong> Notify you of new features and important changes (with your consent)</li>
+            </ul>
+
+            <div class="security-section">
+                <h2>Data Storage and Security</h2>
+                
+                <h3>Data Storage</h3>
+                <ul>
+                    <li><strong>Cloud Infrastructure:</strong> Your data is stored on secure cloud servers with enterprise-grade security</li>
+                    <li><strong>Data Backup:</strong> Regular automated backups ensure data recovery and continuity</li>
+                    <li><strong>Geographic Storage:</strong> Data may be stored in multiple geographic regions for redundancy</li>
+                </ul>
+
+                <h3>Security Measures</h3>
+                <ul>
+                    <li><strong>Encryption:</strong> All data is encrypted in transit and at rest using industry-standard protocols</li>
+                    <li><strong>Access Controls:</strong> Role-based access controls limit data access to authorized users only</li>
+                    <li><strong>Authentication:</strong> Multi-factor authentication options for enhanced account security</li>
+                    <li><strong>Regular Audits:</strong> Security assessments and vulnerability testing are conducted regularly</li>
+                </ul>
+            </div>
+
+            <div class="data-sharing">
+                <h2>Data Sharing and Disclosure</h2>
+
+                <h3>We Do Not Sell Your Data</h3>
+                <p>We do not sell, rent, or trade your personal or business information to third parties.</p>
+
+                <h3>Limited Sharing</h3>
+                <p>We may share your information only in these circumstances:</p>
+                <ul>
+                    <li><strong>Team Members:</strong> Data sharing within your organization as configured by account administrators</li>
+                    <li><strong>Service Providers:</strong> Trusted third-party services for hosting, analytics, and payment processing</li>
+                    <li><strong>Legal Requirements:</strong> When required by law, regulation, or legal process</li>
+                    <li><strong>Business Protection:</strong> To protect our rights, property, or safety, or that of our users</li>
+                    <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales (with user notification)</li>
+                </ul>
+
+                <h3>Integration Partners</h3>
+                <p>If you choose to integrate with third-party services (accounting software, e-commerce platforms), data sharing is governed by your explicit consent and their respective privacy policies.</p>
+            </div>
+
+            <div class="rights-section">
+                <h2>Your Data Rights</h2>
+
+                <h3>Access and Control</h3>
+                <ul>
+                    <li><strong>Data Export:</strong> Download your data in standard formats at any time</li>
+                    <li><strong>Account Settings:</strong> Modify your profile information and preferences</li>
+                    <li><strong>Data Deletion:</strong> Request deletion of your account and associated data</li>
+                    <li><strong>Data Portability:</strong> Transfer your data to another service provider</li>
+                </ul>
+
+                <h3>Privacy Controls</h3>
+                <ul>
+                    <li><strong>Notification Preferences:</strong> Control what communications you receive</li>
+                    <li><strong>Location Services:</strong> Enable or disable location-based features</li>
+                    <li><strong>Analytics:</strong> Opt out of non-essential usage analytics</li>
+                    <li><strong>Team Permissions:</strong> Manage data access for team members</li>
+                </ul>
+            </div>
+
+            <h2>Data Retention</h2>
+
+            <h3>Active Accounts</h3>
+            <p>We retain your data while your account is active and for the duration of your subscription.</p>
+
+            <h3>Account Termination</h3>
+            <ul>
+                <li><strong>Grace Period:</strong> Data is retained for 30 days after account termination for recovery</li>
+                <li><strong>Data Deletion:</strong> After the grace period, data is permanently deleted from our systems</li>
+                <li><strong>Legal Requirements:</strong> Some data may be retained longer to comply with legal obligations</li>
+                <li><strong>Backup Systems:</strong> Data in backup systems is deleted according to our standard retention schedule</li>
+            </ul>
+
+            <h2>Third-Party Services</h2>
+
+            <h3>Integration Services</h3>
+            <p>The App may integrate with third-party services (payment processors, cloud storage, analytics). These services have their own privacy policies that govern their data practices.</p>
+
+            <h3>Service Providers</h3>
+            <p>We work with trusted service providers for:</p>
+            <ul>
+                <li>Cloud hosting and infrastructure</li>
+                <li>Payment processing</li>
+                <li>Customer support tools</li>
+                <li>App analytics and performance monitoring</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>Inventory Pro is designed for business use and is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+
+            <h2>International Data Transfers</h2>
+            <p>Your data may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for international data transfers, including standard contractual clauses and adequacy decisions.</p>
+
+            <h2>Cookies and Tracking</h2>
+            <p>The App may use cookies and similar technologies for:</p>
+            <ul>
+                <li><strong>Authentication:</strong> Maintaining your login session</li>
+                <li><strong>Preferences:</strong> Remembering your app settings</li>
+                <li><strong>Analytics:</strong> Understanding app usage patterns (you can opt out)</li>
+                <li><strong>Performance:</strong> Optimizing app functionality</li>
+            </ul>
+
+            <h2>Data Breach Notification</h2>
+            <p>In the unlikely event of a data security incident, we will:</p>
+            <ul>
+                <li>Investigate and contain the incident promptly</li>
+                <li>Notify affected users within 72 hours when feasible</li>
+                <li>Provide clear information about what happened and what we're doing about it</li>
+                <li>Offer assistance and resources to help protect your information</li>
+            </ul>
+
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in our practices or applicable laws. We will:</p>
+            <ul>
+                <li>Notify users of material changes through the App or email</li>
+                <li>Post the updated policy with a new effective date</li>
+                <li>Provide a summary of significant changes</li>
+            </ul>
+
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p>For privacy-related questions, requests, or concerns:</p>
+                <p><strong>Inventory Pro Support</strong><br>
+                Email: deltaratech@gmail.com<br>
+                Subject Line: "Inventory Pro Privacy"<br>
+                Address: New Orleans, Louisiana, USA</p>
+
+                <h3>Data Protection Officer</h3>
+                <p>For data protection inquiries in regions with specific privacy regulations, please contact our designated representative at the email above.</p>
+            </div>
+
+            <div class="regional-rights">
+                <h2>Regional Privacy Rights</h2>
+
+                <h3>California Residents (CCPA)</h3>
+                <p>California residents have additional rights under the California Consumer Privacy Act, including the right to know what personal information is collected and how it's used.</p>
+
+                <h3>European Residents (GDPR)</h3>
+                <p>European residents have rights under the General Data Protection Regulation, including data portability, rectification, and the right to be forgotten.</p>
+
+                <h3>Other Jurisdictions</h3>
+                <p>We comply with applicable privacy laws in all jurisdictions where we operate.</p>
+            </div>
+
+            <div class="last-updated">
+                <em>Last Updated: January 1, 2025</em>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="index.html">Back to Home</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright 2025 Deltara Tech. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

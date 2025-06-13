@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Pro - Terms of Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #e9ecef 75%, #f8f9fa 100%);
+            background-attachment: fixed;
+            background-size: 100% 300vh;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(52, 152, 219, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            color: #2980b9;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content h3 {
+            color: #3498db;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        .content ul {
+            margin: 1rem 0 1rem 2rem;
+            color: #34495e;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .effective-date {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 2rem 0;
+        }
+
+        .disclaimer h3 {
+            color: #e74c3c !important;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #2ecc71;
+            margin: 2rem 0;
+        }
+
+        .contact-info h2 {
+            color: #27ae60 !important;
+            border: none;
+            margin-top: 0;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 1rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .back-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 90px 0.5rem 1rem;
+            }
+
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem 1rem;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+            }
+
+            .content h3 {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                height: 45px;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Touch-friendly improvements */
+        .back-link {
+            -webkit-tap-highlight-color: rgba(52, 152, 219, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <img src="images/logo.png" alt="Deltara Tech" class="logo">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>📦 Inventory Pro</h1>
+            <p class="subtitle">Terms of Service</p>
+        </div>
+
+        <div class="content">
+            <div class="effective-date">
+                <strong>Effective Date: January 1, 2025</strong>
+            </div>
+
+            <h2>Acceptance of Terms</h2>
+            <p>By downloading, installing, or using Inventory Pro ("App" or "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+
+            <h2>Description of Service</h2>
+            <p>Inventory Pro is a software application that provides inventory management solutions including:</p>
+            <ul>
+                <li>Real-time inventory tracking and management</li>
+                <li>Product catalog and organization</li>
+                <li>Stock level monitoring and alerts</li>
+                <li>Reporting and analytics tools</li>
+                <li>Multi-location inventory support</li>
+                <li>Team collaboration features</li>
+                <li>Integration capabilities with third-party services</li>
+            </ul>
+
+            <h2>License Grant</h2>
+            <h3>Software License</h3>
+            <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable license to use Inventory Pro for your internal business purposes during your subscription period.</p>
+
+            <h3>Restrictions</h3>
+            <p>You may not:</p>
+            <ul>
+                <li>Copy, modify, or distribute the App</li>
+                <li>Reverse engineer, decompile, or disassemble the App</li>
+                <li>Create derivative works based on the App</li>
+                <li>Remove or alter any proprietary notices</li>
+                <li>Use the App for any illegal or unauthorized purpose</li>
+                <li>Sublicense or transfer your license to others</li>
+            </ul>
+
+            <h2>User Accounts</h2>
+            <h3>Account Registration</h3>
+            <ul>
+                <li>You must provide accurate and complete information during registration</li>
+                <li>You are responsible for maintaining the security of your account credentials</li>
+                <li>You must notify us immediately of any unauthorized use of your account</li>
+                <li>One person may not maintain multiple accounts</li>
+            </ul>
+
+            <h3>Account Responsibility</h3>
+            <ul>
+                <li>You are responsible for all activities that occur under your account</li>
+                <li>You must ensure that your team members comply with these Terms</li>
+                <li>You must maintain appropriate access controls within your organization</li>
+            </ul>
+
+            <h2>Subscription and Payment</h2>
+            <h3>Subscription Plans</h3>
+            <ul>
+                <li>Various subscription plans are available with different features and usage limits</li>
+                <li>Subscription details, including pricing and features, are described in the App</li>
+                <li>Plans may be subject to change with appropriate notice</li>
+            </ul>
+
+            <h3>Payment Terms</h3>
+            <ul>
+                <li>Subscription fees are charged in advance on a recurring basis</li>
+                <li>Payment must be made through approved payment methods</li>
+                <li>All fees are non-refundable except as required by law</li>
+                <li>Taxes are additional and your responsibility</li>
+            </ul>
+
+            <h3>Auto-Renewal</h3>
+            <ul>
+                <li>Subscriptions automatically renew unless canceled before the renewal date</li>
+                <li>You will be charged the then-current rate for your subscription plan</li>
+                <li>You can cancel auto-renewal through your account settings</li>
+            </ul>
+
+            <h3>Free Trial</h3>
+            <ul>
+                <li>Free trial periods may be offered at our discretion</li>
+                <li>Trial limitations and terms are specified during signup</li>
+                <li>Trials may convert to paid subscriptions automatically</li>
+            </ul>
+
+            <h2>Acceptable Use</h2>
+            <h3>Permitted Use</h3>
+            <p>You may use Inventory Pro to:</p>
+            <ul>
+                <li>Manage your legitimate business inventory</li>
+                <li>Track products and stock levels</li>
+                <li>Generate business reports and analytics</li>
+                <li>Collaborate with authorized team members</li>
+                <li>Integrate with approved third-party services</li>
+            </ul>
+
+            <h3>Prohibited Use</h3>
+            <p>You may not use Inventory Pro to:</p>
+            <ul>
+                <li>Store or track illegal products or activities</li>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Infringe on intellectual property rights</li>
+                <li>Transmit harmful code or malware</li>
+                <li>Attempt to gain unauthorized access to the Service</li>
+                <li>Use the Service for competitive intelligence against us</li>
+                <li>Store personal information of individuals without proper consent</li>
+                <li>Exceed usage limits or attempt to circumvent restrictions</li>
+            </ul>
+
+            <h2>Data and Privacy</h2>
+            <h3>Your Data</h3>
+            <ul>
+                <li>You retain ownership of all data you input into the App</li>
+                <li>You are responsible for the accuracy and legality of your data</li>
+                <li>You must have proper rights to all data you upload</li>
+                <li>You grant us permission to process your data to provide the Service</li>
+            </ul>
+
+            <h3>Data Backup</h3>
+            <ul>
+                <li>While we perform regular backups, you are responsible for maintaining your own data backups</li>
+                <li>We recommend exporting your data regularly</li>
+                <li>We are not liable for data loss, although we will make reasonable efforts to prevent it</li>
+            </ul>
+
+            <h3>Privacy</h3>
+            <p>Your use of the App is subject to our Privacy Policy, which is incorporated into these Terms by reference.</p>
+
+            <h2>Intellectual Property</h2>
+            <h3>Our IP</h3>
+            <ul>
+                <li>Inventory Pro and all related technology are owned by Deltara Tech</li>
+                <li>All trademarks, logos, and brand names are our property</li>
+                <li>These Terms do not grant you any ownership rights in the App</li>
+            </ul>
+
+            <h3>User Content</h3>
+            <ul>
+                <li>You retain ownership of your business data and content</li>
+                <li>You grant us a license to use your content solely to provide the Service</li>
+                <li>You represent that you have rights to all content you upload</li>
+            </ul>
+
+            <h3>Feedback</h3>
+            <p>Any feedback, suggestions, or ideas you provide about the App may be used by us without compensation or attribution.</p>
+
+            <h2>Service Availability</h2>
+            <h3>Uptime</h3>
+            <ul>
+                <li>We strive to maintain high service availability but do not guarantee 100% uptime</li>
+                <li>Scheduled maintenance will be announced in advance when possible</li>
+                <li>We are not liable for service interruptions beyond our reasonable control</li>
+            </ul>
+
+            <h3>Support</h3>
+            <ul>
+                <li>Support is provided according to your subscription plan</li>
+                <li>Support hours and response times vary by plan</li>
+                <li>We reserve the right to limit support for accounts in violation of these Terms</li>
+            </ul>
+
+            <div class="disclaimer">
+                <h2>Limitation of Liability</h2>
+                <h3>Service Disclaimer</h3>
+                <p><strong>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</strong></p>
+
+                <h3>Limitation of Damages</h3>
+                <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.</strong></p>
+
+                <h3>Maximum Liability</h3>
+                <p><strong>OUR TOTAL LIABILITY FOR ANY CLAIM SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE SERVICE IN THE 12 MONTHS PRECEDING THE CLAIM.</strong></p>
+
+                <h3>Data Loss</h3>
+                <p>While we implement security measures and backups, we are not liable for data loss. You should maintain your own backups.</p>
+            </div>
+
+            <h2>Indemnification</h2>
+            <p>You agree to indemnify and hold Deltara Tech harmless from any claims, damages, or expenses arising from:</p>
+            <ul>
+                <li>Your use of the App</li>
+                <li>Your violation of these Terms</li>
+                <li>Your violation of any third-party rights</li>
+                <li>Your data or content uploaded to the App</li>
+            </ul>
+
+            <h2>Termination</h2>
+            <h3>By You</h3>
+            <ul>
+                <li>You may cancel your subscription at any time through your account settings</li>
+                <li>Cancellation stops future billing but does not provide refunds for the current period</li>
+                <li>You may continue using the Service until the end of your current billing period</li>
+            </ul>
+
+            <h3>By Us</h3>
+            <p>We may terminate your account for:</p>
+            <ul>
+                <li>Violation of these Terms</li>
+                <li>Non-payment of fees</li>
+                <li>Illegal or harmful use of the Service</li>
+                <li>Extended periods of inactivity</li>
+            </ul>
+
+            <h3>Effect of Termination</h3>
+            <p>Upon termination:</p>
+            <ul>
+                <li>Your access to the App will cease</li>
+                <li>Your data will be retained for 30 days for potential recovery</li>
+                <li>After 30 days, your data will be permanently deleted</li>
+                <li>These Terms will survive termination where applicable</li>
+            </ul>
+
+            <h2>Updates and Changes</h2>
+            <h3>App Updates</h3>
+            <ul>
+                <li>We may update the App to add features, fix bugs, or improve performance</li>
+                <li>Updates may be automatic or require manual installation</li>
+                <li>Continued use of the App after updates constitutes acceptance of changes</li>
+            </ul>
+
+            <h3>Terms Changes</h3>
+            <ul>
+                <li>We may modify these Terms with reasonable notice</li>
+                <li>Material changes will be communicated through the App or email</li>
+                <li>Continued use after changes constitutes acceptance of new Terms</li>
+            </ul>
+
+            <h2>Integration and Third Parties</h2>
+            <h3>Third-Party Integrations</h3>
+            <ul>
+                <li>The App may integrate with third-party services at your option</li>
+                <li>Third-party integrations are governed by their respective terms and policies</li>
+                <li>We are not responsible for third-party service availability or functionality</li>
+            </ul>
+
+            <h3>Third-Party Content</h3>
+            <p>Any third-party content or links provided are for convenience only and do not constitute endorsement.</p>
+
+            <h2>Export Controls</h2>
+            <p>You agree to comply with all applicable export and import laws and regulations regarding the use of the App.</p>
+
+            <h2>Governing Law</h2>
+            <p>These Terms are governed by the laws of the State of Louisiana, USA, without regard to conflict of law principles.</p>
+
+            <h2>Dispute Resolution</h2>
+            <h3>Informal Resolution</h3>
+            <p>Before formal legal action, we encourage you to contact us to seek informal resolution of any disputes.</p>
+
+            <h3>Jurisdiction</h3>
+            <p>Any legal disputes will be resolved in the courts of Louisiana, USA.</p>
+
+            <h3>Class Action Waiver</h3>
+            <p>You agree to resolve disputes individually and waive any right to participate in class actions.</p>
+
+            <h2>Entire Agreement</h2>
+            <p>These Terms, together with our Privacy Policy and any subscription agreement, constitute the entire agreement between you and Deltara Tech regarding the App.</p>
+
+            <h2>Severability</h2>
+            <p>If any provision of these Terms is found unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>For questions about these Terms or the Service:</p>
+                <p><strong>Inventory Pro Support</strong><br>
+                Email: deltaratech@gmail.com<br>
+                Subject Line: "Inventory Pro Terms"<br>
+                Address: New Orleans, Louisiana, USA</p>
+            </div>
+
+            <h2>Force Majeure</h2>
+            <p>We are not liable for any failure to perform due to circumstances beyond our reasonable control, including natural disasters, government actions, or technical failures.</p>
+
+            <div class="last-updated">
+                <em>Last Updated: January 1, 2025</em>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="index.html">Back to Home</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright 2025 Deltara Tech. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

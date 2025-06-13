@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deltara Tech - Terms of Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #e9ecef 75%, #f8f9fa 100%);
+            background-attachment: fixed;
+            background-size: 100% 300vh;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(52, 152, 219, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            color: #2980b9;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content h3 {
+            color: #3498db;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        .content ul {
+            margin: 1rem 0 1rem 2rem;
+            color: #34495e;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .effective-date {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 2rem 0;
+        }
+
+        .disclaimer h2, .disclaimer h3 {
+            color: #e74c3c !important;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #2ecc71;
+            margin: 2rem 0;
+        }
+
+        .contact-info h2 {
+            color: #27ae60 !important;
+            border: none;
+            margin-top: 0;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 1rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .back-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 90px 0.5rem 1rem;
+            }
+
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem 1rem;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+            }
+
+            .content h3 {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                height: 45px;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Touch-friendly improvements */
+        .back-link {
+            -webkit-tap-highlight-color: rgba(52, 152, 219, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <img src="images/logo.png" alt="Deltara Tech" class="logo">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Deltara Tech</h1>
+            <p class="subtitle">Terms of Service</p>
+        </div>
+
+        <div class="content">
+            <div class="effective-date">
+                <strong>Effective Date: January 1, 2025</strong>
+            </div>
+
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing and using the Deltara Tech website (deltaratech.com) and services ("Service"), you accept and agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Service.</p>
+
+            <h2>Description of Service</h2>
+            <p>Deltara Tech provides software development services including:</p>
+            <ul>
+                <li>Custom AI solutions and chatbot development</li>
+                <li>Web development and applications</li>
+                <li>Cloud infrastructure and DevOps services</li>
+                <li>SaaS product development</li>
+                <li>Software consultation and maintenance</li>
+            </ul>
+
+            <h2>Use of Service</h2>
+            
+            <h3>Permitted Use</h3>
+            <p>You may use our Service to:</p>
+            <ul>
+                <li>Learn about our services and capabilities</li>
+                <li>Contact us for business inquiries</li>
+                <li>Request quotes and project consultations</li>
+                <li>Access information about our software solutions</li>
+            </ul>
+
+            <h3>Prohibited Use</h3>
+            <p>You may not:</p>
+            <ul>
+                <li>Use the Service for any illegal or unauthorized purpose</li>
+                <li>Interfere with or disrupt the Service or servers</li>
+                <li>Attempt to gain unauthorized access to any portion of the Service</li>
+                <li>Transmit viruses, malware, or other harmful code</li>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Impersonate others or provide false information</li>
+                <li>Use automated systems to access the Service without permission</li>
+            </ul>
+
+            <h2>Intellectual Property Rights</h2>
+            
+            <h3>Our Content</h3>
+            <p>All content, features, and functionality on our Service, including text, graphics, logos, software, and design, are owned by Deltara Tech and protected by copyright, trademark, and other intellectual property laws.</p>
+
+            <h3>User Content</h3>
+            <p>Any information, feedback, or materials you provide to us may be used by Deltara Tech for business purposes, including service improvement and development.</p>
+
+            <h3>Third-Party Content</h3>
+            <p>We may reference or link to third-party content. We do not endorse or assume responsibility for such content.</p>
+
+            <h2>Service Agreements</h2>
+            
+            <h3>Project Engagement</h3>
+            <p>Specific software development projects are governed by separate written agreements that supplement these Terms. In case of conflict, project-specific agreements take precedence.</p>
+
+            <h3>Quotes and Estimates</h3>
+            <p>All quotes and estimates are preliminary and subject to change based on project scope and requirements. Final pricing will be documented in project agreements.</p>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is important to us. Please review our Privacy Policy, which governs the collection and use of your information.</p>
+
+            <div class="disclaimer">
+                <h2>Disclaimers and Limitation of Liability</h2>
+                
+                <h3>Service Availability</h3>
+                <p>We strive to maintain Service availability but do not guarantee uninterrupted access. The Service is provided "as is" and "as available."</p>
+
+                <h3>No Warranties</h3>
+                <p><strong>TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</strong></p>
+
+                <h3>Limitation of Liability</h3>
+                <p><strong>IN NO EVENT SHALL DELTARA TECH BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITIES.</strong></p>
+
+                <h3>Maximum Liability</h3>
+                <p><strong>OUR TOTAL LIABILITY FOR ANY CLAIMS RELATED TO THE SERVICE SHALL NOT EXCEED THE AMOUNT PAID BY YOU FOR SERVICES IN THE 12 MONTHS PRECEDING THE CLAIM.</strong></p>
+            </div>
+
+            <h2>Indemnification</h2>
+            <p>You agree to indemnify and hold Deltara Tech harmless from any claims, damages, or expenses arising from your use of the Service or violation of these Terms.</p>
+
+            <h2>Termination</h2>
+            
+            <h3>By You</h3>
+            <p>You may stop using our Service at any time.</p>
+
+            <h3>By Us</h3>
+            <p>We may terminate or suspend your access to the Service for violation of these Terms or for any other reason, with or without notice.</p>
+
+            <h3>Effect of Termination</h3>
+            <p>Upon termination, your right to use the Service ceases immediately. Provisions that by their nature should survive termination will survive.</p>
+
+            <h2>Governing Law and Jurisdiction</h2>
+            <p>These Terms are governed by the laws of the State of Louisiana, USA, without regard to conflict of law principles. Any disputes arising from these Terms or your use of the Service will be resolved in the courts of Louisiana.</p>
+
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. We will notify users of material changes by posting updated Terms on our website. Continued use of the Service after changes constitutes acceptance of new Terms.</p>
+
+            <h2>Severability</h2>
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+
+            <h2>Entire Agreement</h2>
+            <p>These Terms, along with our Privacy Policy and any project-specific agreements, constitute the entire agreement between you and Deltara Tech regarding the Service.</p>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>For questions about these Terms, please contact us:</p>
+                <p><strong>Deltara Tech</strong><br>
+                Email: deltaratech@gmail.com<br>
+                Address: New Orleans, Louisiana, USA</p>
+                <p>Please include "Terms of Service" in your subject line for terms-related inquiries.</p>
+            </div>
+
+            <h2>Force Majeure</h2>
+            <p>We shall not be liable for any failure to perform our obligations due to circumstances beyond our reasonable control, including natural disasters, government actions, or technical failures.</p>
+
+            <h2>Assignment</h2>
+            <p>You may not assign or transfer your rights under these Terms. We may assign our rights and obligations under these Terms without restriction.</p>
+
+            <div class="last-updated">
+                <em>Last Updated: January 1, 2025</em>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="index.html">Back to Home</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright 2025 Deltara Tech. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

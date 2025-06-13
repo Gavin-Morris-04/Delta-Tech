@@ -248,6 +248,116 @@
             background: transparent;
         }
 
+        /* Products Section */
+        .products {
+            background: transparent;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-weight: 800;
+        }
+
+        .product-showcase {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-showcase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(255, 255, 255, 0.95));
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .product-description {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .product-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        /* Product section link styles */
+        .product-showcase a {
+            transition: color 0.3s ease;
+        }
+
+        .product-showcase a:hover {
+            color: #2980b9;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 1rem;
+        }
+
         /* Reviews Section */
         .reviews {
             background: transparent;
@@ -304,8 +414,6 @@
             font-weight: 600;
             color: #3498db;
         }
-
-
 
         .contact-grid {
             display: grid;
@@ -393,6 +501,7 @@
             }
             
             .about-text h2,
+            .products h2,
             .reviews h2,
             .contact-info h2 {
                 font-size: 2.5rem;
@@ -464,6 +573,7 @@
             }
             
             .about-text h2,
+            .products h2,
             .reviews h2,
             .contact-info h2 {
                 font-size: 2rem;
@@ -505,6 +615,24 @@
                 padding: 2rem;
                 margin-top: 2rem;
             }
+
+            .product-showcase {
+                padding: 2rem;
+                margin-top: 2rem;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
             
             .cta-button {
                 padding: 1rem 2rem;
@@ -538,6 +666,7 @@
             }
             
             .about-text h2,
+            .products h2,
             .reviews h2,
             .contact-info h2 {
                 font-size: 1.8rem;
@@ -567,6 +696,14 @@
             
             .contact-form {
                 padding: 1.5rem;
+            }
+
+            .product-showcase {
+                padding: 1.5rem;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
             }
             
             .form-group input,
@@ -611,6 +748,7 @@
             }
             
             .about-text h2,
+            .products h2,
             .reviews h2,
             .contact-info h2 {
                 font-size: 1.5rem;
@@ -623,6 +761,14 @@
             
             .contact-form {
                 padding: 1rem;
+            }
+
+            .product-showcase {
+                padding: 1rem;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
             }
         }
 
@@ -729,6 +875,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a onclick="scrollToSection('home')">Home</a></li>
                 <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('products')">Products</a></li>
                 <li><a onclick="scrollToSection('reviews')">Reviews</a></li>
                 <li><a onclick="scrollToSection('contact')">Contact</a></li>
             </ul>
@@ -775,6 +922,27 @@
                         <p>Complete SaaS product development from MVP to enterprise-scale applications.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-showcase">
+                <h3 class="product-title">📦 Inventory Pro</h3>
+                <p class="product-description">Sleek inventory management software designed for modern businesses. Easy-to-use interface streamlines tracking, reduces errors, and scales with your growing company needs effortlessly.</p>
+                <div class="product-features">
+                    <div class="feature">🚀 Easy Setup</div>
+                    <div class="feature">📊 Real-time Tracking</div>
+                    <div class="feature">📱 Mobile Ready</div>
+                    <div class="feature">⚡ Lightning Fast</div>
+                </div>
+                <p class="footer-copyright" style="margin-top: 2rem; color: #7f8c8d;">
+                    <a href="privacy-policy-inventory-pro.html" style="color: #3498db; text-decoration: none; transition: color 0.3s ease;">Privacy</a> | 
+                    <a href="terms-of-service-inventory-pro.html" style="color: #3498db; text-decoration: none; transition: color 0.3s ease;">Terms</a> | 
+                    Copyright 2025 Gavin Morris
+                </p>
             </div>
         </div>
     </section>
@@ -849,6 +1017,18 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright 2025 Deltara Tech. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Smooth scroll animations
