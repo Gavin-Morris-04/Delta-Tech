@@ -1,969 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deltara Tech — Custom Software Development</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #050508;
-            --bg-card: #0c0f14;
-            --bg-card-hover: #111620;
-            --navy: #002d72;
-            --blue: #3d6eb5;
-            --blue-bright: #6b9fd9;
-            --blue-glow: rgba(61, 110, 181, 0.45);
-            --text: #f1f5f9;
-            --muted: #94a3b8;
-            --border: rgba(148, 163, 184, 0.12);
-            --border-hover: rgba(107, 159, 217, 0.35);
-            --radius: 14px;
-            --radius-sm: 10px;
-            --nav-h: 72px;
-            --max: 1100px;
-            --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deltara Tech | Custom Software for Louisiana Service Businesses</title>
+  <meta name="description" content="Deltara Tech builds custom apps, websites and automation for HVAC, roofing and home-service businesses in Louisiana. Based in New Orleans.">
+  <link rel="canonical" href="https://www.deltaratech.com/">
+  <meta name="theme-color" content="#032c7e">
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Deltara Tech">
+  <meta property="og:title" content="Deltara Tech | Software built around how your crew actually works">
+  <meta property="og:description" content="Custom apps, websites and automation for Louisiana service businesses.">
+  <meta property="og:url" content="https://www.deltaratech.com/">
+  <meta property="og:image" content="https://www.deltaratech.com/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-        /* Ambient background */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background-image:
-                linear-gradient(rgba(61, 110, 181, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(61, 110, 181, 0.04) 1px, transparent 1px);
-            background-size: 64px 64px;
-            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
-        }
-        .bg-glow {
-            position: fixed;
-            width: 700px; height: 700px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 45, 114, 0.35) 0%, transparent 65%);
-            top: -200px; left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
-            pointer-events: none;
-            filter: blur(60px);
-        }
-        .bg-glow--2 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(61, 110, 181, 0.2) 0%, transparent 70%);
-            top: auto; bottom: -100px; right: -100px; left: auto;
-            transform: none;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add('js');</script>
 
-        /* Nav */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            height: var(--nav-h);
-            display: flex;
-            align-items: center;
-            padding: 0 1.5rem;
-            border-bottom: 1px solid transparent;
-            transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
-        }
-        .nav.scrolled {
-            background: rgba(5, 5, 8, 0.85);
-            backdrop-filter: blur(16px);
-            border-color: var(--border);
-        }
-        .nav-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-        .logo {
-            height: 44px;
-            width: auto;
-            display: block;
-            filter:
-                drop-shadow(0 0 12px rgba(107, 159, 217, 0.85))
-                drop-shadow(0 0 28px rgba(61, 110, 181, 0.5))
-                brightness(1.15) contrast(1.1);
-            transition: filter 0.3s, transform 0.3s var(--ease);
-        }
-        .logo-link:hover .logo {
-            filter:
-                drop-shadow(0 0 18px rgba(168, 196, 232, 0.95))
-                drop-shadow(0 0 40px rgba(61, 110, 181, 0.65))
-                brightness(1.25) contrast(1.1);
-            transform: scale(1.02);
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 0.5rem 0.85rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: color 0.2s, background 0.2s;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text);
-            background: rgba(61, 110, 181, 0.1);
-        }
-        .nav-cta {
-            margin-left: 0.5rem;
-            padding: 0.55rem 1.15rem !important;
-            background: var(--navy) !important;
-            color: #fff !important;
-            border: 1px solid rgba(107, 159, 217, 0.4) !important;
-            border-radius: 999px !important;
-        }
-        .nav-cta:hover {
-            background: var(--blue) !important;
-            box-shadow: 0 0 24px var(--blue-glow);
-        }
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .menu-btn span {
-            display: block;
-            width: 22px; height: 2px;
-            background: var(--text);
-            border-radius: 2px;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-        .menu-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .menu-btn.open span:nth-child(2) { opacity: 0; }
-        .menu-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        /* Layout */
-        main { position: relative; z-index: 1; }
-        .section {
-            padding: 5rem 1.5rem;
-            max-width: var(--max);
-            margin: 0 auto;
-        }
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--blue-bright);
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            font-size: clamp(1.75rem, 4vw, 2.35rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        .section-desc {
-            color: var(--muted);
-            font-size: 1.05rem;
-            max-width: 600px;
-            line-height: 1.75;
-        }
-
-        /* Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero */
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            background: url('./images/756926-1920x1080-desktop-1080p-new-orleans-background.jpg') center/cover no-repeat;
-            opacity: 0.4;
-            transform: scale(1.02);
-        }
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(180deg, rgba(5, 5, 8, 0.4) 0%, rgba(5, 5, 8, 0.58) 50%, var(--bg) 100%),
-                linear-gradient(90deg, rgba(5, 5, 8, 0.35) 0%, transparent 28%, transparent 72%, rgba(5, 5, 8, 0.35) 100%);
-        }
-        .hero {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: calc(var(--nav-h) + 3rem) 1.5rem 4rem;
-            max-width: var(--max);
-            margin: 0 auto;
-        }
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.9rem 0.35rem 0.5rem;
-            background: rgba(61, 110, 181, 0.12);
-            border: 1px solid var(--border-hover);
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--blue-bright);
-            width: fit-content;
-            margin-bottom: 1.5rem;
-        }
-        .pill-dot {
-            width: 8px; height: 8px;
-            background: #34d399;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
-            50% { opacity: 0.8; box-shadow: 0 0 0 6px transparent; }
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.08;
-            margin-bottom: 1.25rem;
-        }
-        .hero h1 span {
-            background: linear-gradient(135deg, #fff 0%, var(--blue-bright) 50%, var(--blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-lead {
-            font-size: clamp(1rem, 2.2vw, 1.2rem);
-            color: var(--muted);
-            max-width: 580px;
-            line-height: 1.75;
-            margin-bottom: 2rem;
-        }
-        .hero-btns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 2.5rem;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            font-family: inherit;
-            border-radius: 999px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s;
-        }
-        .btn:active { transform: scale(0.98); }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--blue), var(--navy));
-            color: #fff;
-            box-shadow: 0 4px 20px var(--blue-glow);
-        }
-        .btn-primary:hover {
-            box-shadow: 0 8px 32px var(--blue-glow);
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-        .btn-outline:hover {
-            border-color: var(--border-hover);
-            background: rgba(61, 110, 181, 0.08);
-            transform: translateY(-2px);
-        }
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem 1.5rem;
-        }
-        .hero-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: color 0.2s;
-        }
-        .hero-links a:hover { color: var(--blue-bright); }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 3.5rem;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--border);
-        }
-        .stat {
-            padding: 1.25rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: border-color 0.3s, transform 0.3s var(--ease);
-        }
-        .stat:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-        }
-        .stat-num {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--text);
-            line-height: 1;
-        }
-        .stat-num.ai {
-            color: var(--blue-bright);
-            text-shadow: 0 0 24px var(--blue-glow);
-        }
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 0.35rem;
-            font-weight: 500;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-            margin-top: 2rem;
-        }
-        .info-card {
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-        }
-        .info-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .info-card p {
-            font-size: 0.9rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-        .info-card .meta {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--blue-bright);
-            font-weight: 500;
-        }
-
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .card {
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: background 0.3s, border-color 0.3s, transform 0.35s var(--ease), box-shadow 0.35s;
-            position: relative;
-            overflow: hidden;
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--navy), var(--blue-bright));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s var(--ease);
-        }
-        .card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-        }
-        .card:hover::before { transform: scaleX(1); }
-        .card-tag {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--blue-bright);
-            margin-bottom: 0.75rem;
-        }
-        .card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-        .card p {
-            font-size: 0.9rem;
-            color: var(--muted);
-            line-height: 1.65;
-        }
-
-        /* Process timeline */
-        .timeline {
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: border-color 0.3s, transform 0.3s var(--ease);
-        }
-        .timeline-item:hover {
-            border-color: var(--border-hover);
-            transform: translateX(6px);
-        }
-        .timeline-step {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--blue-bright);
-            letter-spacing: 0.05em;
-        }
-        .timeline-item h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.35rem;
-        }
-        .timeline-item p {
-            font-size: 0.9rem;
-            color: var(--muted);
-            line-height: 1.65;
-        }
-
-        /* Contact */
-        .contact-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
-            align-items: start;
-        }
-        .contact-chips {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-        .chip {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.25rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            color: var(--muted);
-            transition: border-color 0.25s, color 0.25s;
-        }
-        .chip:hover {
-            border-color: var(--border-hover);
-            color: var(--text);
-        }
-        .chip strong { color: var(--text); font-weight: 500; }
-        .form {
-            padding: 1.75rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-        }
-        .field { margin-bottom: 1rem; }
-        .field label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--muted);
-            margin-bottom: 0.4rem;
-        }
-        .field input,
-        .field textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--text);
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .field input:focus,
-        .field textarea:focus {
-            outline: none;
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(61, 110, 181, 0.2);
-        }
-        .form .btn-primary { width: 100%; margin-top: 0.5rem; }
-
-        /* Footer */
-        footer {
-            position: relative;
-            z-index: 1;
-            padding: 2rem 1.5rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        footer a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin: 0 1rem;
-            transition: color 0.2s;
-        }
-        footer a:hover { color: var(--blue-bright); }
-        footer p {
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 1rem;
-        }
-
-        /* Toast & progress */
-        .progress {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--navy), var(--blue-bright));
-            transform-origin: left;
-            transform: scaleX(0);
-            z-index: 200;
-        }
-        .toast {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            padding: 1rem 1.25rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-            transform: translateY(120%);
-            opacity: 0;
-            transition: transform 0.4s var(--ease), opacity 0.4s;
-            z-index: 200;
-            max-width: 340px;
-        }
-        .toast.show { transform: translateY(0); opacity: 1; }
-        .toast.ok { border-left: 3px solid #34d399; }
-        .toast.err { border-left: 3px solid #f87171; }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .about-grid, .contact-wrap { grid-template-columns: 1fr; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
-            .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: var(--nav-h);
-                left: 0; right: 0;
-                flex-direction: column;
-                padding: 1rem;
-                background: rgba(5, 5, 8, 0.98);
-                border-bottom: 1px solid var(--border);
-                display: none;
-                align-items: stretch;
-            }
-            .nav-links.open { display: flex; }
-            .nav-links a { padding: 0.75rem 1rem; }
-            .nav-cta { margin-left: 0 !important; text-align: center; }
-            .menu-btn { display: flex; }
-            .services-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) {
-            .stats { grid-template-columns: 1fr; }
-            .hero-btns { flex-direction: column; }
-            .hero-btns .btn { width: 100%; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .reveal { opacity: 1; transform: none; transition: none; }
-            .pill-dot { animation: none; }
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>emailjs.init("5iMRn1CalPdToSLI5");</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Deltara Tech",
+    "url": "https://www.deltaratech.com/",
+    "logo": "https://www.deltaratech.com/images/logo.png",
+    "image": "https://www.deltaratech.com/images/og-image.png",
+    "email": "deltaratech@gmail.com",
+    "description": "Custom apps, websites and automation for HVAC, roofing and home-service businesses in Louisiana.",
+    "address": { "@type": "PostalAddress", "addressLocality": "New Orleans", "addressRegion": "LA", "addressCountry": "US" },
+    "areaServed": { "@type": "State", "name": "Louisiana" },
+    "founder": { "@type": "Person", "name": "Gavin Morris" },
+    "foundingDate": "2025"
+  }
+  </script>
 </head>
 <body>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-glow" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
-    <div class="progress" id="progress"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#home" class="logo-link" data-scroll="home">
-                <img src="images/logo.png" alt="Deltara Tech" class="logo">
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Deltara Tech home">
+        <img src="images/mark.png" alt="" width="38" height="32">
+        <span class="brand-word">Deltara<small>Tech</small></span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="btn btn-primary" href="#contact">Start a project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <svg class="hero-river" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1500 40 C 1200 120, 1100 260, 900 300 S 560 360, 420 520 S 160 760, -60 820"/>
+        <path d="M1500 90 C 1210 170, 1120 300, 930 340 S 600 400, 470 560 S 220 790, 0 860"/>
+        <path d="M1500 140 C 1220 220, 1140 340, 960 380 S 640 440, 520 600 S 290 820, 80 900"/>
+        <path d="M1500 190 C 1230 270, 1160 380, 990 420 S 690 480, 580 640 S 360 850, 170 940"/>
+        <path d="M1500 240 C 1250 320, 1190 420, 1030 460 S 740 520, 640 680 S 440 880, 260 980"/>
+        <path d="M960 380 C 1000 460, 1080 520, 1200 560 S 1400 640, 1500 700" stroke-dasharray="4 8"/>
+        <path d="M520 600 C 560 660, 620 720, 700 760 S 860 820, 940 900" stroke-dasharray="4 8"/>
+      </svg>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="status reveal"><i></i> New Orleans, LA · Taking on new projects</p>
+          <h1 class="reveal">Software built around how your <em>crew</em> actually works.</h1>
+          <p class="lead reveal">Deltara Tech builds custom apps, websites and automation for HVAC, roofing and home-service businesses in Louisiana. Less time chasing techs by phone, and fewer parts and leads falling through the cracks.</p>
+          <div class="hero-ctas reveal">
+            <a class="btn btn-primary" href="#contact">Start a project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <button class="menu-btn" id="menu-btn" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a data-section="home" class="active">Home</a></li>
-                <li><a data-section="about">About</a></li>
-                <li><a data-section="services">Services</a></li>
-                <li><a data-section="process">Process</a></li>
-                <li><a data-section="contact" class="nav-cta">Get in touch</a></li>
-            </ul>
+            <a class="btn btn-ghost" href="case-study.html">Read the HVAC case study</a>
+          </div>
+          <p class="hero-note reveal">Or email <a href="mailto:deltaratech@gmail.com">deltaratech@gmail.com</a>. We reply within one business day.</p>
         </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero-section">
-            <div class="hero-bg" aria-hidden="true"></div>
-            <div class="hero">
-            <div class="pill reveal">
-                <span class="pill-dot"></span>
-                Accepting new client projects
+        <div class="hero-visual reveal">
+          <div class="app" id="demo-app" aria-label="Illustration of an inventory app showing stock on a service truck" role="img">
+            <div class="app-bar">
+              <div class="app-title">Parts inventory<span>TRUCK 07 · SHARED WITH OFFICE</span></div>
+              <span class="app-sync"><i></i>Live</span>
             </div>
-            <h1 class="reveal">
-                <span>Deltara Tech</span>
-            </h1>
-            <p class="hero-lead reveal">
-                Custom software for modern businesses — AI automation, web & mobile apps, and cloud systems built in New Orleans and shipped nationwide.
-            </p>
-            <div class="hero-btns reveal">
-                <a href="#contact" class="btn btn-primary" data-scroll="contact">Start a project</a>
-                <a href="#services" class="btn btn-outline" data-scroll="services">What we build</a>
+            <div class="app-tabs" aria-hidden="true">
+              <span>Warehouse</span><span class="on">Truck 07</span><span>Truck 12</span><span>Truck 15</span>
             </div>
-            <div class="hero-links reveal">
-                <a href="mailto:deltaratech@gmail.com">deltaratech@gmail.com</a>
-                <a href="#contact" data-scroll="contact">New Orleans, LA</a>
+            <table class="app-table" aria-hidden="true">
+              <thead><tr><th>Part</th><th>Qty</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr data-part="cap"><td>Capacitor 45/5 µF<small>CAP-4505</small></td><td><span class="qty">5</span></td><td><span class="chip">OK</span></td></tr>
+                <tr data-part="con"><td>Contactor 2-pole 40A<small>CON-240</small></td><td><span class="qty">8</span></td><td><span class="chip">OK</span></td></tr>
+                <tr data-part="ref"><td>R-410A, 25 lb<small>REF-410</small></td><td><span class="qty">2</span></td><td><span class="chip">OK</span></td></tr>
+                <tr data-part="mot"><td>Condenser fan motor<small>MTR-1825</small></td><td><span class="qty">1</span></td><td><span class="chip low">Low</span></td></tr>
+              </tbody>
+            </table>
+            <div class="app-log" aria-hidden="true">
+              <h4>Activity</h4>
+              <ol id="demo-log">
+                <li><span class="who">OF</span><span><b>Office</b> moved 6 × Contactor 40A, Warehouse → Truck 12</span><time>8m</time></li>
+                <li><span class="who alert">!</span><span><b>Low stock:</b> Condenser fan motor on Truck 07</span><time>21m</time></li>
+              </ol>
             </div>
-            <div class="stats reveal">
-                <div class="stat">
-                    <div class="stat-num" data-count="50">0</div>
-                    <div class="stat-label">Projects delivered</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num" data-count="24">0</div>
-                    <div class="stat-label">Hour support</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num" data-count="100">0</div>
-                    <div class="stat-label">Client focused</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num ai">AI</div>
-                    <div class="stat-label">Powered solutions</div>
-                </div>
+          </div>
+          <p class="app-caption">An illustration of the inventory app we built for a Louisiana HVAC company. Part names and numbers are examples.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROOF ================= -->
+    <section class="proof" aria-label="Track record">
+      <div class="wrap">
+        <div class="proof-item reveal">
+          <div class="proof-num">6</div>
+          <div class="proof-label">Louisiana businesses served</div>
+        </div>
+        <div class="proof-item reveal">
+          <div class="proof-num">100+</div>
+          <div class="proof-label">People using software we built</div>
+        </div>
+        <div class="proof-item reveal">
+          <div class="proof-num">4–5 hrs</div>
+          <div class="proof-label">Saved per week for one HVAC client<small>Owner's estimate</small></div>
+        </div>
+        <div class="proof-item proof-industries reveal">
+          <span class="kicker">Who we work with</span>
+          <div class="tags"><span class="tag">HVAC</span><span class="tag">Roofing</span><span class="tag">Home services</span><span class="tag">Local businesses</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROBLEMS ================= -->
+    <section class="section" id="problems">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker reveal">Sound familiar?</p>
+          <h2 class="reveal">The busywork that eats your week has a fix.</h2>
+          <p class="reveal">We don't sell software for its own sake. We look for the calls, texts and spreadsheets your team handles every day, and replace them with something simpler.</p>
+        </div>
+        <div class="problems">
+          <div class="problem reveal">
+            <span class="problem-n">01</span>
+            <p class="problem-pain">"Who has the capacitors?" Calls and texts all day to find parts.</p>
+            <span class="problem-arrow" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h22M18 8l8 8-8 8"/></svg></span>
+            <div class="problem-fix"><h3>Inventory that follows every truck</h3><p>Stock by location, who used what, and low-stock alerts, all in one app the office and the field share.</p></div>
+          </div>
+          <div class="problem reveal">
+            <span class="problem-n">02</span>
+            <p class="problem-pain">Service requests buried in voicemail, texts and inboxes.</p>
+            <span class="problem-arrow" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h22M18 8l8 8-8 8"/></svg></span>
+            <div class="problem-fix"><h3>Intake that sorts and flags for you</h3><p>Automation that organizes incoming requests and flags emergencies. A person still approves every job.</p></div>
+          </div>
+          <div class="problem reveal">
+            <span class="problem-n">03</span>
+            <p class="problem-pain">A website that looks dated and doesn't bring in work.</p>
+            <span class="problem-arrow" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h22M18 8l8 8-8 8"/></svg></span>
+            <div class="problem-fix"><h3>A fast site built to get quote requests</h3><p>Clear services, works on a phone, and a request form that lands straight in your inbox.</p></div>
+          </div>
+          <div class="problem reveal">
+            <span class="problem-n">04</span>
+            <p class="problem-pain">Paying every month for software nobody on the team uses.</p>
+            <span class="problem-arrow" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h22M18 8l8 8-8 8"/></svg></span>
+            <div class="problem-fix"><h3>Only the features you'll use</h3><p>A focused tool shaped around your workflow, so there's less to learn and nothing you're paying for but not using.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CASE STUDY ================= -->
+    <section class="section section--navy" id="work">
+      <div class="wrap case">
+        <div class="case-copy">
+          <p class="kicker reveal">Featured work · HVAC</p>
+          <h2 class="reveal">From spreadsheets and phone calls to one shared inventory app.</h2>
+          <p class="lead reveal">A Louisiana HVAC company with 100+ field technicians had no reliable view of what parts it had, where they were, or who used them. We built a custom app that tracks every part across the warehouse and each service truck.</p>
+          <div class="case-metrics reveal">
+            <div class="case-metric"><b>4–5 hrs</b><span>of admin work saved each week, by the owner's estimate</span></div>
+            <div class="case-metric"><b>208–260</b><span>hours a year back for the office</span></div>
+            <div class="case-metric"><b>100+</b><span>field technicians on one shared system</span></div>
+            <div class="case-metric"><b>Daily</b><span>use by techs, office managers and owners</span></div>
+          </div>
+          <blockquote class="case-quote reveal">
+            <p>"The biggest change is that we're not constantly calling each other to figure out where parts are."</p>
+            <footer>Owner, Louisiana HVAC company</footer>
+          </blockquote>
+          <div class="case-ctas reveal">
+            <a class="btn btn-light" href="case-study.html">Read the full case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="flow reveal" aria-label="How a parts update reaches the office, before and after">
+          <p class="flow-title">How a parts update reaches the office</p>
+          <div class="flow-row">
+            <span class="flow-label before">Before</span>
+            <ol class="flow-steps">
+              <li>Technician uses a part on a job</li>
+              <li>Calls or texts the office</li>
+              <li>Manager types it into a spreadsheet</li>
+              <li class="pain">Stock numbers are out of date</li>
+            </ol>
+          </div>
+          <div class="flow-row">
+            <span class="flow-label after">After</span>
+            <ol class="flow-steps">
+              <li>Technician uses a part on a job</li>
+              <li>Updates the app on the spot</li>
+              <li class="hero-step">One shared record: warehouse + every truck</li>
+              <li class="good">Office and owners see current stock</li>
+            </ol>
+          </div>
+          <p class="flow-note">The phone call and the re-typing are gone from every parts update.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker reveal">What we build</p>
+          <h2 class="reveal">Four ways we take work off your plate.</h2>
+          <p class="reveal">Every project is scoped around one question: what will this save your team each week?</p>
+        </div>
+        <div class="services">
+          <article class="service service--feature reveal">
+            <div class="service-top">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 7h6M9 10.5h6M9 14h3"/></svg></span>
+              <span class="service-n">01</span>
             </div>
+            <h3>Custom business apps</h3>
+            <p>Phone and web apps for the jobs your spreadsheets can't keep up with: inventory, job tracking, equipment and internal tools.</p>
+            <ul>
+              <li>A phone app for the field and a web dashboard for the office</li>
+              <li>One shared database with a full history of every change</li>
+              <li>Separate logins for techs, managers and owners</li>
+            </ul>
+            <div class="service-fit"><p><b>Good fit if</b> your team keeps calling each other to find out where something is.</p></div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 8.5h19"/><circle cx="5.5" cy="6.25" r=".6" fill="currentColor"/><circle cx="7.5" cy="6.25" r=".6" fill="currentColor"/><path d="M6 13h6M6 16h4M15 12.5h3v4h-3z"/></svg></span>
+              <span class="service-n">02</span>
             </div>
-        </section>
+            <h3>Websites that win work</h3>
+            <p>Fast, clean sites for local service companies that make it obvious what you do and easy to ask for a quote.</p>
+            <ul>
+              <li>Built for phones first, where most customers find you</li>
+              <li>Quote and service request forms that go straight to your inbox</li>
+              <li>Search-friendly pages for each service and area you cover</li>
+            </ul>
+            <div class="service-fit"><p><b>Good fit if</b> you're embarrassed to send people to your current site.</p></div>
+          </article>
 
-        <section id="about" class="section">
-            <p class="section-label reveal">Introduction</p>
-            <h2 class="section-title reveal">About us</h2>
-            <div class="about-grid">
-                <div>
-                    <p class="section-desc reveal">
-                        Deltara Tech is a custom software studio founded to help small and growing businesses automate operations, launch digital products, and scale with confidence.
-                    </p>
-                    <p class="section-desc reveal" style="margin-top: 1rem;">
-                        From intelligent chatbots to full-stack platforms and cloud deployments — we own the full lifecycle: discovery, design, build, launch, and support.
-                    </p>
-                </div>
-                <div class="info-card reveal">
-                    <h3>Headquarters</h3>
-                    <p>Proudly based in New Orleans, Louisiana — building technology with Southern grit and engineering discipline.</p>
-                    <p class="meta">Mon – Fri · 9 AM – 6 PM CST</p>
-                </div>
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12l1-8z"/></svg></span>
+              <span class="service-n">03</span>
             </div>
-        </section>
+            <h3>Automation &amp; AI <span class="badge">In development</span></h3>
+            <p>Put the repetitive office work on autopilot, with a person in charge of every decision that matters.</p>
+            <ul>
+              <li>Sort incoming service requests and flag emergencies</li>
+              <li>Suggest the right technician and next step for each job</li>
+              <li>Connect the tools you already use so nobody re-types data</li>
+            </ul>
+            <div class="service-fit"><p><b>Now building:</b> an AI intake assistant for an existing client, starting small and keeping a person in charge.</p></div>
+          </article>
 
-        <section id="services" class="section">
-            <p class="section-label reveal">Expertise</p>
-            <h2 class="section-title reveal">What we build</h2>
-            <p class="section-desc reveal">Production-ready systems across AI, full-stack, and cloud — tailored to how your business actually runs.</p>
-            <div class="services-grid">
-                <article class="card reveal">
-                    <div class="card-tag">AI & Automation</div>
-                    <h3>Intelligent systems</h3>
-                    <p>Custom AI tools, chatbots, and workflow automation that cut manual work and improve customer experience.</p>
-                </article>
-                <article class="card reveal">
-                    <div class="card-tag">Full-Stack</div>
-                    <h3>Web applications</h3>
-                    <p>Responsive sites and full-featured web apps — fast, secure, and built with modern stacks your team can maintain.</p>
-                </article>
-                <article class="card reveal">
-                    <div class="card-tag">Cloud</div>
-                    <h3>Infrastructure & DevOps</h3>
-                    <p>Scalable hosting, CI/CD pipelines, and managed services so your product stays online and performant.</p>
-                </article>
-                <article class="card reveal">
-                    <div class="card-tag">Products</div>
-                    <h3>SaaS & mobile</h3>
-                    <p>End-to-end product development — from MVP to App Store launches and enterprise-ready platforms.</p>
-                </article>
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3.5 17.5a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.3-5.3l-2.4 2.4-2-.5-.5-2 2.4-2.4z"/><path d="M17 15.5l3.5 3.5"/></svg></span>
+              <span class="service-n">04</span>
             </div>
-        </section>
+            <h3>Launch &amp; ongoing support</h3>
+            <p>We don't hand over a login and disappear. We set it up, get your team using it, and keep it running.</p>
+            <ul>
+              <li>Hosting, setup and getting your data moved in</li>
+              <li>Hands-on training for the office and the field</li>
+              <li>Fixes and improvements as your business changes</li>
+            </ul>
+            <div class="service-fit"><p><b>Good fit if</b> you've been burned by a developer who stopped answering.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <section id="process" class="section">
-            <p class="section-label reveal">How we work</p>
-            <h2 class="section-title reveal">From idea to production</h2>
-            <p class="section-desc reveal">A clear, collaborative process — no black boxes, no surprises.</p>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-step">Step 01</div>
-                    <div>
-                        <h3>Discovery</h3>
-                        <p>We map your goals, users, and constraints — then align on scope, timeline, and success metrics.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-step">Step 02</div>
-                    <div>
-                        <h3>Design</h3>
-                        <p>Architecture, UX flows, and technical specs you can review before we write production code.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-step">Step 03</div>
-                    <div>
-                        <h3>Build</h3>
-                        <p>Iterative development with demos and transparent progress — you see the product come together.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-step">Step 04</div>
-                    <div>
-                        <h3>Launch & support</h3>
-                        <p>Deployment, monitoring, and ongoing maintenance so you scale without breaking what works.</p>
-                    </div>
-                </div>
+    <!-- ================= PRODUCT ================= -->
+    <section class="section section--tight" id="product" aria-label="Inventory Pro">
+      <div class="wrap">
+        <div class="product reveal">
+          <div>
+            <p class="kicker">Our product</p>
+            <h2>Inventory Pro Tracker</h2>
+            <p class="lead">Our own inventory app: a public version similar to the system we built for our HVAC client. For teams that need inventory tracking now and don't need a custom build.</p>
+            <ul class="product-points">
+              <li>Stock by location</li>
+              <li>Who used or moved each item</li>
+              <li>Low-stock flags</li>
+              <li>iPhone app + web access</li>
+            </ul>
+            <div class="product-links">
+              <a class="btn btn-primary" href="https://www.inventoryprotracker.com" target="_blank" rel="noopener">Visit Inventory Pro
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+              <a class="small" href="privacy-policy-inventory-pro.html">Privacy</a>
+              <a class="small" href="terms-of-service-inventory-pro.html">Terms</a>
             </div>
-        </section>
-
-        <section id="contact" class="section">
-            <p class="section-label reveal">Connect</p>
-            <h2 class="section-title reveal">Let's work together</h2>
-            <p class="section-desc reveal">Tell us about your project — we typically respond within one business day.</p>
-            <div class="contact-wrap">
-                <div class="reveal">
-                    <div class="contact-chips">
-                        <div class="chip"><span>✉</span> <strong>Email</strong> deltaratech@gmail.com</div>
-                        <div class="chip"><span>◎</span> <strong>Location</strong> New Orleans, Louisiana</div>
-                        <div class="chip"><span>◷</span> <strong>Hours</strong> Mon – Fri, 9 AM – 6 PM CST</div>
-                    </div>
-                </div>
-                <form class="form reveal" id="contact-form">
-                    <div class="field">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="you@company.com">
-                    </div>
-                    <div class="field">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" placeholder="Optional">
-                    </div>
-                    <div class="field">
-                        <label for="message">Project details</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="What are you looking to build?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send message</button>
-                </form>
+          </div>
+          <div class="product-visual" aria-hidden="true">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="ph-h">Warehouse</div>
+                <div class="ph-search"></div>
+                <div class="ph-row"><b>Air filter 16×25</b><span>42</span></div>
+                <div class="ph-row"><b>Thermostat wire</b><span>9</span></div>
+                <div class="ph-row low"><b>Drain pan tabs</b><span>2 · low</span></div>
+                <div class="ph-row"><b>Disconnect 60A</b><span>14</span></div>
+                <div class="ph-row"><b>Copper fittings</b><span>120</span></div>
+                <div class="ph-btn">+ Log usage</div>
+              </div>
             </div>
-        </section>
-    </main>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms-of-service.html">Terms of Service</a>
-        <p>© 2025 Deltara Tech · New Orleans, LA</p>
-    </footer>
+    <!-- ================= PROCESS ================= -->
+    <section class="section section--white" id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker reveal">How we work</p>
+          <h2 class="reveal">No jargon. No surprises.</h2>
+          <p class="reveal">You'll always know what we're building, why, and what it will cost before any work starts.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-dot">01</span>
+            <h3>Learn the workflow</h3>
+            <p>We talk with the owner, the office and the field team to see how work actually gets done before we suggest anything.</p>
+            <small>You get: a clear picture of the problem</small>
+          </li>
+          <li class="step reveal">
+            <span class="step-dot">02</span>
+            <h3>Plain-English proposal</h3>
+            <p>What we'll build, what it costs and when it'll be ready, framed around the hours and phone calls it saves.</p>
+            <small>You get: scope, price and timeline in writing</small>
+          </li>
+          <li class="step reveal">
+            <span class="step-dot">03</span>
+            <h3>Demo, then build</h3>
+            <p>You see a working demo of the workflow early, then regular check-ins as the real thing comes together.</p>
+            <small>You get: no big reveal at the end</small>
+          </li>
+          <li class="step reveal">
+            <span class="step-dot">04</span>
+            <h3>Launch and stick around</h3>
+            <p>We deploy it, train your team, and keep supporting it after launch. The inventory system we built is still in daily use.</p>
+            <small>You get: a partner, not a handoff</small>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-    <div class="toast" id="toast" role="status"></div>
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+      <div class="wrap about">
+        <div class="about-copy">
+          <p class="kicker reveal">About Deltara</p>
+          <h2 class="reveal">A local software studio that speaks contractor, not code.</h2>
+          <p class="reveal">Deltara Tech was started in 2025 to give Louisiana's service businesses the kind of custom software big companies take for granted, without the big-company price tag or the runaround.</p>
+          <p class="reveal">We're small on purpose. The person who scopes your project is the person who builds it and the person you call after launch.</p>
+          <ul class="values reveal">
+            <li><b>Outcomes first</b><span>We measure success in hours saved and calls avoided, not features shipped.</span></li>
+            <li><b>Plain talk</b><span>No tech jargon in proposals. We show you a demo before we talk architecture.</span></li>
+            <li><b>Honest numbers</b><span>If we can't measure it, we won't claim it. Our case studies say whose estimates they are.</span></li>
+            <li><b>Here after launch</b><span>Support is part of the job, not an upsell.</span></li>
+          </ul>
+        </div>
+        <aside class="founder reveal" aria-label="Founder">
+          <div class="founder-top">
+            <span class="avatar" aria-hidden="true">GM</span>
+            <div>
+              <h3>Gavin Morris</h3>
+              <p>FOUNDER &amp; ENGINEER</p>
+            </div>
+          </div>
+          <div class="founder-body">
+            <dl>
+              <div><dt>Does</dt><dd>Client calls, scoping, design, development, launch and support</dd></div>
+              <div><dt>Background</dt><dd>Computer science at LSU; software engineering at Blue Cross and Blue Shield of Louisiana and Spacebourne</dd></div>
+              <div><dt>Based in</dt><dd>New Orleans, Louisiana</dd></div>
+            </dl>
+            <a class="text-link" href="https://gavinmorrisportfolio.com" target="_blank" rel="noopener">See Gavin's portfolio
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-    <script>
-        // Scroll progress
-        const progress = document.getElementById('progress');
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-            progress.style.transform = `scaleX(${p})`;
-            nav.classList.toggle('scrolled', scrollY > 24);
-        }, { passive: true });
+    <!-- ================= FAQ ================= -->
+    <section class="section section--white" id="faq">
+      <div class="wrap faq-grid">
+        <div class="section-head">
+          <p class="kicker reveal">Questions</p>
+          <h2 class="reveal">Things owners usually ask first.</h2>
+          <p class="reveal">Don't see yours? <a href="#contact" class="text-link">Ask us directly</a></p>
+        </div>
+        <div class="faq reveal">
+          <details open>
+            <summary>Do I need to be technical to work with you?</summary>
+            <div class="answer"><p>Not at all. You know your business; we handle the technology. We'll ask about your day-to-day work, not your tech stack, and every proposal is written in plain English.</p></div>
+          </details>
+          <details>
+            <summary>What does a custom app or website cost?</summary>
+            <div class="answer"><p>It depends on what you need, so we don't publish a price list. After a short call we send a written proposal with the scope, price and timeline before any work begins.</p><p>If an off-the-shelf tool would serve you better than a custom build, we'll tell you.</p></div>
+          </details>
+          <details>
+            <summary>Why custom software instead of something off the shelf?</summary>
+            <div class="answer"><p>Off-the-shelf tools are great when they fit. Our HVAC client found the options were either too expensive or didn't match how the team worked, and didn't want a monthly subscription for features nobody would use. A focused custom build fixed that.</p></div>
+          </details>
+          <details>
+            <summary>Will AI replace my office staff?</summary>
+            <div class="answer"><p>That's not how we build it. Our automation handles sorting and suggestions so your office spends less time on busywork, and a person approves every decision that matters, like creating a job or contacting a customer.</p></div>
+          </details>
+          <details>
+            <summary>What happens after launch?</summary>
+            <div class="answer"><p>We stay on. We help your team get comfortable with the new system, fix issues, and make improvements as your business changes.</p></div>
+          </details>
+          <details>
+            <summary>Do you only work with businesses in Louisiana?</summary>
+            <div class="answer"><p>Louisiana is home and where most of our clients are, but we can work with businesses anywhere over video calls and email.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
 
-        // Reveal
-        const revealObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-        document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+    <!-- ================= CONTACT ================= -->
+    <section class="section section--navy" id="contact">
+      <div class="wrap contact">
+        <div>
+          <p class="kicker reveal">Start a project</p>
+          <h2 class="reveal">Tell us what's eating up your week.</h2>
+          <p class="lead reveal">A few sentences is plenty. We'll reply within one business day to set up a short call, and there's no obligation.</p>
+          <ul class="contact-list reveal">
+            <li><span>Email</span><a href="mailto:deltaratech@gmail.com">deltaratech@gmail.com</a></li>
+            <li><span>Based in</span><b>New Orleans, Louisiana</b></li>
+            <li><span>Hours</span><b>Mon–Fri, 9 AM–6 PM Central</b></li>
+          </ul>
+        </div>
 
-        // Stats counter
-        let counted = false;
-        function runCounters() {
-            if (counted) return;
-            counted = true;
-            document.querySelectorAll('[data-count]').forEach(el => {
-                const target = +el.dataset.count;
-                const suffix = target === 100 ? '%' : '+';
-                const start = performance.now();
-                const dur = 1600;
-                function tick(now) {
-                    const t = Math.min((now - start) / dur, 1);
-                    const eased = 1 - Math.pow(1 - t, 3);
-                    el.textContent = Math.floor(eased * target) + (t >= 1 ? suffix : '');
-                    if (t < 1) requestAnimationFrame(tick);
-                }
-                requestAnimationFrame(tick);
-            });
-        }
-        const statsEl = document.querySelector('.stats');
-        if (statsEl) {
-            new IntersectionObserver(([e]) => { if (e.isIntersecting) runCounters(); }, { threshold: 0.4 }).observe(statsEl);
-        }
+        <form class="form reveal" id="contact-form" novalidate>
+          <h3>Project inquiry</h3>
+          <p>Fields marked optional can be skipped.</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-company">Business name <i>(optional)</i></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="f-industry">Industry <i>(optional)</i></label>
+              <select id="f-industry" name="industry">
+                <option value="">Choose one</option>
+                <option>HVAC</option>
+                <option>Roofing</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Other home service</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <fieldset class="field field--full">
+              <legend>What do you need? <i>(pick any)</i></legend>
+              <div class="checks">
+                <label><input type="checkbox" name="need" value="Custom app">Custom app</label>
+                <label><input type="checkbox" name="need" value="Website">Website</label>
+                <label><input type="checkbox" name="need" value="Automation / AI">Automation / AI</label>
+                <label><input type="checkbox" name="need" value="Support for an existing system">Support</label>
+                <label><input type="checkbox" name="need" value="Not sure yet">Not sure yet</label>
+              </div>
+            </fieldset>
+            <div class="field field--full">
+              <label for="f-message">What's slowing your team down?</label>
+              <textarea id="f-message" name="message" required placeholder="e.g. We track parts in a spreadsheet and the office spends hours calling techs…"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="f-website">Leave this empty</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+          </div>
+          <button class="btn btn-signal" type="submit">Send inquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-fine">We only use your details to reply. See our <a href="privacy-policy.html">privacy policy</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-        // Nav active + scroll
-        const sections = ['home', 'about', 'services', 'process', 'contact'];
-        const links = document.querySelectorAll('.nav-links a[data-section]');
-        function setActive() {
-            let cur = 'home';
-            sections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el && el.getBoundingClientRect().top <= 100) cur = id;
-            });
-            links.forEach(a => a.classList.toggle('active', a.dataset.section === cur));
-        }
-        window.addEventListener('scroll', setActive, { passive: true });
-        setActive();
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="#top" aria-label="Deltara Tech home">
+            <img src="images/mark-white.png" alt="" width="38" height="32">
+            <span class="brand-word">Deltara<small>Tech</small></span>
+          </a>
+          <p class="footer-tag">Custom apps, websites and automation for Louisiana service businesses.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="case-study.html">HVAC case study</a></li>
+            <li><a href="https://www.inventoryprotracker.com" target="_blank" rel="noopener">Inventory Pro</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:deltaratech@gmail.com">deltaratech@gmail.com</a></li>
+            <li>New Orleans, LA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Deltara Tech LLC</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
 
-        function go(id) {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-            document.getElementById('nav-links').classList.remove('open');
-            document.getElementById('menu-btn').classList.remove('open');
-        }
-        links.forEach(a => a.addEventListener('click', () => go(a.dataset.section)));
-        document.querySelectorAll('[data-scroll]').forEach(el => {
-            el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.scroll); });
-        });
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-        document.getElementById('menu-btn').addEventListener('click', () => {
-            document.getElementById('nav-links').classList.toggle('open');
-            document.getElementById('menu-btn').classList.toggle('open');
-        });
-
-        // Toast + EmailJS
-        function toast(msg, ok = true) {
-            const t = document.getElementById('toast');
-            t.textContent = msg;
-            t.className = 'toast show ' + (ok ? 'ok' : 'err');
-            clearTimeout(t._t);
-            t._t = setTimeout(() => t.classList.remove('show'), 5000);
-        }
-
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const orig = btn.textContent;
-            btn.textContent = 'Sending…';
-            btn.disabled = true;
-            emailjs.send('service_3a38f7a', 'template_ftc7b1v', {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                company: document.getElementById('company').value,
-                message: document.getElementById('message').value,
-                to_email: 'deltaratech@gmail.com'
-            }).then(() => {
-                toast("Message sent — we'll reply within 24 hours.");
-                this.reset();
-            }).catch(() => {
-                toast('Error sending. Email deltaratech@gmail.com directly.', false);
-            }).finally(() => {
-                btn.textContent = orig;
-                btn.disabled = false;
-            });
-        });
-
-        window.addEventListener('load', () => {
-            scrollTo(0, 0);
-            if (location.hash) history.replaceState(null, '', location.pathname);
-        });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

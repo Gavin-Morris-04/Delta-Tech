@@ -1,368 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Pro - Privacy Policy</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #e9ecef 75%, #f8f9fa 100%);
-            background-attachment: fixed;
-            background-size: 100% 300vh;
-            overflow-x: hidden;
-        }
-
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 0.5rem 2rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
-        }
-
-        .back-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            background: rgba(52, 152, 219, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .back-link:hover {
-            color: #2980b9;
-            background: rgba(52, 152, 219, 0.2);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 120px 2rem 4rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(52, 152, 219, 0.2);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #3498db;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .header .subtitle {
-            font-size: 1.2rem;
-            color: #34495e;
-            font-weight: 600;
-        }
-
-        .content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(52, 152, 219, 0.2);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .content h2 {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin: 2rem 0 1rem 0;
-            font-weight: 700;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-
-        .content h3 {
-            color: #3498db;
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.8rem 0;
-            font-weight: 600;
-        }
-
-        .content p {
-            margin-bottom: 1rem;
-            color: #34495e;
-            font-weight: 500;
-        }
-
-        .content ul {
-            margin: 1rem 0 1rem 2rem;
-            color: #34495e;
-        }
-
-        .content li {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .effective-date {
-            background: rgba(52, 152, 219, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        .security-section {
-            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.1));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #2ecc71;
-            margin: 2rem 0;
-        }
-
-        .security-section h2, .security-section h3 {
-            color: #27ae60 !important;
-        }
-
-        .rights-section {
-            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.1));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #9b59b6;
-            margin: 2rem 0;
-        }
-
-        .rights-section h2, .rights-section h3 {
-            color: #8e44ad !important;
-        }
-
-        .data-sharing {
-            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(211, 84, 0, 0.1));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #e67e22;
-            margin: 2rem 0;
-        }
-
-        .data-sharing h2, .data-sharing h3 {
-            color: #d35400 !important;
-        }
-
-        .contact-info {
-            background: rgba(46, 204, 113, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #2ecc71;
-            margin: 2rem 0;
-        }
-
-        .contact-info h2 {
-            color: #27ae60 !important;
-            border: none;
-            margin-top: 0;
-        }
-
-        .regional-rights {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #3498db;
-            margin: 2rem 0;
-        }
-
-        .regional-rights h2, .regional-rights h3 {
-            color: #2980b9 !important;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #3498db;
-        }
-
-        .footer-copyright {
-            font-size: 0.9rem;
-            color: #bdc3c7;
-            margin-top: 1rem;
-        }
-
-        .last-updated {
-            text-align: center;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(52, 152, 219, 0.2);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 100px 1rem 2rem;
-            }
-
-            .header {
-                padding: 2rem 1.5rem;
-            }
-
-            .header h1 {
-                font-size: 2.2rem;
-            }
-
-            .content {
-                padding: 2rem 1.5rem;
-            }
-
-            .content h2 {
-                font-size: 1.5rem;
-            }
-
-            .nav {
-                padding: 0.5rem 1rem;
-            }
-
-            .nav-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            .logo {
-                height: 50px;
-            }
-
-            .back-link {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 90px 0.5rem 1rem;
-            }
-
-            .header {
-                padding: 1.5rem 1rem;
-            }
-
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .header .subtitle {
-                font-size: 1rem;
-            }
-
-            .content {
-                padding: 1.5rem 1rem;
-            }
-
-            .content h2 {
-                font-size: 1.3rem;
-            }
-
-            .content h3 {
-                font-size: 1.1rem;
-            }
-
-            .logo {
-                height: 45px;
-            }
-
-            .back-link {
-                font-size: 0.8rem;
-                padding: 0.3rem 0.6rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Touch-friendly improvements */
-        .back-link {
-            -webkit-tap-highlight-color: rgba(52, 152, 219, 0.2);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy | Inventory Pro by Deltara Tech</title>
+  <meta name="description" content="How the Inventory Pro app collects, uses and protects information.">
+  <link rel="canonical" href="https://www.deltaratech.com/privacy-policy-inventory-pro.html">
+  <meta name="theme-color" content="#032c7e">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-content">
-            <img src="images/logo.png" alt="Deltara Tech" class="logo">
-            <a href="index.html" class="back-link">← Back to Home</a>
-        </div>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="container">
-        <div class="header">
-            <h1>📦 Inventory Pro</h1>
-            <p class="subtitle">Privacy Policy</p>
-        </div>
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Deltara Tech home">
+        <img src="images/mark.png" alt="" width="38" height="32">
+        <span class="brand-word">Deltara<small>Tech</small></span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a class="btn btn-primary" href="index.html#contact">Start a project</a></li>
+      </ul>
+    </div>
+  </header>
 
-        <div class="content">
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Legal</span></nav>
+        <p class="kicker">Inventory Pro</p>
+        <h1>Privacy Policy</h1>
+      </div>
+    </section>
+    <div class="wrap">
+      <article class="legal">
+
             <div class="effective-date">
                 <strong>Effective Date: January 1, 2025</strong>
             </div>
@@ -572,19 +255,19 @@
             <div class="last-updated">
                 <em>Last Updated: January 1, 2025</em>
             </div>
-        </div>
+      </article>
     </div>
+  </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="terms-of-service.html">Terms of Service</a>
-                <a href="index.html">Back to Home</a>
-            </div>
-            <div class="footer-copyright">
-                Copyright 2025 Deltara Tech. All rights reserved.
-            </div>
-        </div>
-    </footer>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-bottom" style="margin-top:0;padding-top:0;border-top:0">
+        <span>© <span data-year>2026</span> Deltara Tech LLC · New Orleans, LA</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a> · <a href="terms-of-service-inventory-pro.html">Inventory Pro Terms</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>
